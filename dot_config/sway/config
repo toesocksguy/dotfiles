@@ -15,7 +15,7 @@ set $up k
 set $right l
 # Your preferred terminal emulator
 # Recommends: foot
-set $term foot
+set $term kitty
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
@@ -29,12 +29,15 @@ set $menu $rofi_cmd -show combi -combi-modes drun#run -modes combi
 
 ### Output configuration
 #
+# Font config
+#
+font pango:Maple Mono Normal NL 12
+
+#
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 # Requires: desktop-backgrounds-compat, swaybg, jxl-pixbuf-loader
 output * bg /usr/share/backgrounds/default.jxl fill
-#
-# Example configuration:
-#
+
 output Virtual-1 {
   mode 1920x1080@60Hz
 }
@@ -73,13 +76,13 @@ output Virtual-1 {
 # Basics:
 #
     # Start a terminal
-    bindsym $mod+Return exec $term
+    bindsym $mod+Shift+Return exec $term
 
     # Kill focused window
     bindsym $mod+Shift+q kill
 
     # Start your launcher
-    bindsym $mod+d exec $menu
+    bindsym $mod+p exec $menu
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
