@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+set -euo pipefail
+curl -Lo ~/.local/bin/tldr https://github.com/tealdeer-rs/tealdeer/releases/latest/download/tealdeer-linux-x86_64-musl
+chmod +x ~/.local/bin/tldr
+tldr --update
+tldr --version
+
