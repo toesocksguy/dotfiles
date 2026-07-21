@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+SRC="$HOME/src/lavat"
+
+# Clone if src dir is missing
+if [ ! -d "$SRC" ]; then
+    git clone https://github.com/AngelJumbo/lavat "$SRC"
+fi
+
+# Refuse to create merge commits if local edits exist.
+# Error instead of surprise merge
+git -C "$SRC" pull --ff-only
+
+# Execute inside box non-interactively.
+# make clean avoid stale objects after pull
+toolbox run --container dev sh -c "cd '$SRC' && make clean && make install PREFIX=\"$HOME/.local\""
+
+echo "lavat installed to ~/.local/bin"
+
