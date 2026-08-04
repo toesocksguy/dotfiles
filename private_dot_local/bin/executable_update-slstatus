@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+SRC="$HOME/src/slstatus"
+
+[ -d "$SRC" ] || git clone git@github.com:toesocksguy/slstatus.git "$SRC"
+
+toolbox run --container dev sh -c "cd '$SRC' && make clean && make"
+sudo cp "$SRC/slstatus" /usr/local/bin/
+echo "slstatus installed: $(ls -l /usr/local/bin/slstatus)"

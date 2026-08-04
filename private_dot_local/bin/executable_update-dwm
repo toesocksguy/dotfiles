@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+SRC="$HOME/src/dwm"
+
+[ -d "$SRC" ] || git clone git@github.com:toesocksguy/dwm.git "$SRC"
+
+toolbox run --container dev sh -c "cd '$SRC' && make clean && make"
+sudo cp "$SRC/dwm" /usr/local/bin
+echo "dwm installed: $(ls -l /usr/local/bin/dwm)"
