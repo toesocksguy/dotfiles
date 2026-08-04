@@ -1,0 +1,10 @@
+#!/bin/sh
+
+# notifications
+dunst &
+
+# status bar feed
+slstatus &
+
+# dwm
+exec dwm
