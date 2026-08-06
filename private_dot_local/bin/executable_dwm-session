@@ -1,0 +1,6 @@
+#!/bin/sh
+
+xsetroot -solid "X1d1f21"
+dunst &
+slstatus &
+exec dwm
